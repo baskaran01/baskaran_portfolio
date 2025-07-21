@@ -375,6 +375,34 @@
         .list-section a:hover {
             color: #8e44ad;
         }
+        /* Education Section */
+        #education ul {
+            max-width: 600px;
+            margin: 0 auto;
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        #education ul li {
+            font-size: 1.1em;
+            color: #34495e;
+            margin: 10px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        body.dark #education ul li {
+            color: #b3d4fc;
+        }
+        #education ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background-color: #00d4ff;
+            border-radius: 50%;
+        }
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -468,13 +496,13 @@
             .skills-grid, .projects-grid {
                 grid-template-columns: 1fr;
             }
-            .list-section ul {
+            .list-section ul, #education ul {
                 text-align: center;
             }
-            .list-section ul li {
+            .list-section ul li, #education ul li {
                 padding-left: 0;
             }
-            .list-section ul li::before {
+            .list-section ul li::before, #education ul li::before {
                 display: none;
             }
         }
@@ -521,6 +549,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#languages">Languages</a></li>
             </ul>
             <div class="theme-toggle"><i class="fas fa-moon"></i></div>
@@ -540,14 +569,15 @@
     <!-- About Section -->
     <section id="about">
         <h2 class="fade-in">About Me</h2>
-        <p class="fade-in">Aspiring software developer with strong fundamentals in C++, object-oriented programming, and problem-solving. Hands-on experience building scalable applications and game systems using Unity, Python, and C#. Proficient in analyzing data and designing interactive solutions. Actively expanding skills in Java, SQL, and data structures. Eager to contribute to a growth-driven tech team with logical thinking, collaboration, and adaptability.</p>
+        <p class="fade-in">Software developer with strong expertise in C++ and object-oriented programming, specializing in game development (Unity/C#) and application design. Proven ability to build performant systems through projects including 3D game environments and algorithmic solutions. Combines technical proficiency in data structures/algorithms with leadership in full development lifecycles. Currently enhancing Java/SQL capabilities for scalable software solutions.</p>
         <p class="fade-in">
-            <strong>Contact:</strong> Tamil Nadu, India | 
+            <strong>Contact:</strong> Veeracholan, Tamil Nadu, India - 626612 | 
             <a href="mailto:balabaskaran2001@gmail.com">balabaskaran2001@gmail.com</a> | 
             +91 6384518024 | 
-            <a href="https://www.linkedin.com/in/baskaran2001" target="_blank">LinkedIn</a> | 
+            <a href="https://www.linkedin.com/in/baskaran001" target="_blank">LinkedIn</a> | 
             <a href="https://github.com/baskaran01" target="_blank">GitHub</a> | 
-            <a href="#" target="_blank">Portfolio</a>
+            <a href="https://baskaran01.github.io/baskaran_portfolio/" target="_blank">Portfolio</a> | 
+            <a href="https://leetcode.com/u/baskaran01" target="_blank">LeetCode</a>
         </p>
     </section>
 
@@ -560,21 +590,20 @@
             <div class="skill-card fade-in">
                 <h3>Technical Skills</h3>
                 <ul>
-                    <li>Programming Languages: C, C++, Java, Python</li>
-                    <li>Development Tools: Git, GitHub, Visual Studio</li>
-                    <li>Software Development: OOPs, Data Structures, Algorithms</li>
-                    <li>Platforms: Windows, Linux</li>
-                    <li>Other: Debugging, Version Control, Problem Solving</li>
+                    <li>Programming: C, C++, Java, Python, SQL</li>
+                    <li>Game Development: Unity, C#, 3D Environment Design</li>
+                    <li>Tools: Git, GitHub, Visual Studio</li>
+                    <li>Core Competencies: OOP, Data Structures, Algorithms, System Optimization</li>
                 </ul>
             </div>
             <div class="skill-card fade-in">
                 <h3>Soft Skills</h3>
                 <ul>
+                    <li>Problem-Solving</li>
                     <li>Logical Thinking</li>
-                    <li>Adaptability</li>
                     <li>Quick Learning</li>
-                    <li>Collaborative Mindset</li>
-                    <li>Team Leadership</li>
+                    <li>Team Collaboration</li>
+                    <li>Leadership</li>
                 </ul>
             </div>
         </div>
@@ -593,34 +622,36 @@
         <div class="projects-grid">
             <div class="project-card fade-in" data-category="game">
                 <div class="project-info">
-                    <h3>Tic Tac Toe Game in C++</h3>
-                    <p><strong>Role:</strong> Developer | <strong>Technologies:</strong> C++, GitHub</p>
+                    <h3>Tic Tac Toe Game</h3>
+                    <p><strong>Role:</strong> Developer | <strong>Technologies:</strong> C++, Java, GitHub</p>
                     <ul>
-                        <li>Created a console-based two-player game using object-oriented design principles.</li>
-                        <li>Added input validation, dynamic board display, and real-time win detection.</li>
-                        <li>Integrated GitHub for version control and project tracking.</li>
+                        <li>Built console applications implementing OOP principles with modular class architecture.</li>
+                        <li>Engineered win-state detection algorithms and input validation systems.</li>
+                        <li>Documented comparative implementation approaches between C++ and Java.</li>
+                        <li><a href="https://github.com/baskaran01/Tic-Tac-Toe-Game-in-C-" target="_blank">C++ Repository</a></li>
+                        <li><a href="https://github.com/baskaran01/TicTacToe" target="_blank">Java Repository</a></li>
                     </ul>
                 </div>
             </div>
             <div class="project-card fade-in" data-category="game">
                 <div class="project-info">
-                    <h3>Open-World Game Development</h3>
+                    <h3>Open-World 3D Game</h3>
                     <p><strong>Role:</strong> Lead Developer | <strong>Technologies:</strong> Unity, C#</p>
                     <ul>
-                        <li>Designed and developed an immersive 3D open-world game using Unity and C#.</li>
-                        <li>Engineered character control, interaction mechanics, and in-game performance optimization.</li>
-                        <li>Led the end-to-end lifecycle: prototyping, coding, debugging, and deployment.</li>
+                        <li>Developed immersive 3D environment with interactive mechanics and character controllers.</li>
+                        <li>Optimized runtime performance through efficient scripting and resource management.</li>
+                        <li>Directed full development lifecycle from concept to functional prototype.</li>
                     </ul>
                 </div>
             </div>
             <div class="project-card fade-in" data-category="data">
                 <div class="project-info">
-                    <h3>Mobile Buying Pattern Analysis & Visualization</h3>
+                    <h3>Mobile Buying Pattern Analysis</h3>
                     <p><strong>Role:</strong> Data Analyst | <strong>Technologies:</strong> Python</p>
                     <ul>
-                        <li>Analyzed consumer buying trends for mobile phones.</li>
-                        <li>Created interactive dashboards to visualize behavioral insights.</li>
-                        <li>Findings improved client sales strategy by 15%.</li>
+                        <li>Processed consumer behavior datasets using Pandas for trend identification.</li>
+                        <li>Visualized key insights through Matplotlib dashboards.</li>
+                        <li>Informed strategic decisions contributing to 15% sales improvement.</li>
                     </ul>
                 </div>
             </div>
@@ -633,9 +664,20 @@
     <section id="certifications" class="list-section">
         <h2 class="fade-in">Certifications</h2>
         <ul>
-            <li class="fade-in"><a href="https://drive.google.com/file/d/1Ut8cbyXehtmTseV-RA9tYxsavH39D185/view?usp=sharing" target="_blank">C++ Course: Learn the Essentials</a> - Scaler Topics | Completed Dec 2024</li>
-            <li class="fade-in"><a href="https://drive.google.com/file/d/18uWrQGX4GKpSZBczNr15fP-xdBBvdmVm/view?usp=sharing" target="_blank">Data Structures in C++ Course</a> - Scaler Topics | Completed Dec 2024</li>
-            <li class="fade-in"><a href="https://drive.google.com/file/d/1CNuf0I90rsRlR_3q-hYniu7SsqQr-B2Y/view?usp=sharing" target="_blank">Java Course – Mastering the Fundamentals</a> - Scaler Topics | Completed June 2025</li>
+            <li class="fade-in"><a href="https://drive.google.com/file/d/1Ut8cbyXehtmTseV-RA9tYxsavH39D185/view?usp=sharing" target="_blank">C++ Essentials</a> - Scaler Topics | 2024</li>
+            <li class="fade-in"><a href="https://drive.google.com/file/d/18uWrQGX4GKpSZBczNr15fP-xdBBvdmVm/view?usp=sharing" target="_blank">Data Structures in C++</a> - Scaler Topics | 2024</li>
+            <li class="fade-in"><a href="https://drive.google.com/file/d/1CNuf0I90rsRlR_3q-hYniu7SsqQr-B2Y/view?usp=sharing" target="_blank">Java Fundamentals</a> - Scaler Topics | 2025</li>
+        </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Education Section -->
+    <section id="education" class="list-section">
+        <h2 class="fade-in">Education</h2>
+        <ul>
+            <li class="fade-in">Master of Computer Applications - Kalasalingam Academy of Research and Education, Srivilliputhur | 2022-2024 | CGPA 7.15</li>
+            <li class="fade-in">Bachelor of Computer Applications - Sri Kaliswari College, Sivakasi | 2019-2022 | CGPA 6.8</li>
         </ul>
     </section>
 
@@ -656,7 +698,7 @@
     <!-- Footer -->
     <footer>
         <p>© 2025 Baskaran B. All rights reserved.</p>
-        <p>This site was made with help of AI.</p>
+        <p>AI helped create this site.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
