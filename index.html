@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baskaran B | Software Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #14b8a6;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --dark: #0f172a;
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 12px;
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 20%),
+                        radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h4 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+            position: relative;
+        }
+
+        .hero-text h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background-color: rgba(37, 99, 235, 0.2);
+            z-index: -1;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            display: flex; /* Added for centering */
+            justify-content: center; /* Added for centering */
+            align-items: center; /* Added for centering */
+            height: 300px; /* Example height */
+            position: relative;
+            /* animation: float 6s ease-in-out infinite; */ /* Removed animation */
+        }
+
+        .hero-image i {
+            font-size: 8rem; /* Make icon larger */
+            color: var(--primary); /* Icon color */
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .hero-image i:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+
+        .code-block {
+            background-color: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            font-family: 'Roboto Mono', monospace;
+            color: var(--light);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .code-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .code-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+
+        .code-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .code-content .comment {
+            color: #64748b;
+        }
+
+        .code-content .keyword {
+            color: #60a5fa;
+        }
+
+        .code-content .function {
+            color: #34d399;
+        }
+
+        .code-content .string {
+            color: #fbbf24;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--light);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 1rem auto 0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .skill-category h3 i {
+            font-size: 1.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .skill-tag:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .project-img {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            opacity: 0.8;
+            z-index: -1;
+        }
+
+        .project-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            background-color: rgba(20, 184, 166, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            gap: 0.8rem;
+            color: var(--accent);
+        }
+
+        /* Soft Skills Section */
+        .soft-skills-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .soft-skill-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            width: 180px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .soft-skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+            border-color: rgba(20, 184, 166, 0.3);
+        }
+
+        .soft-skill-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: rgba(20, 184, 166, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .soft-skill-card h3 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+
+        /* Certifications & Education */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 1.5rem 2.5rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .timeline-date {
+            display: block;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+        }
+
+        .timeline-content .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr; /* Changed to single column */
+            gap: 2rem; /* Adjusted gap */
+            align-items: center;
+            max-width: 600px; /* Constrain width for better look */
+            margin: 0 auto; /* Center the container */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .contact-icon {
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--light);
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.95);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-content p {
+            margin: 0.5rem 0 1.5rem;
+            color: var(--gray);
+            max-width: 500px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links-footer {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Particle Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.3);
+            animation: float 10s infinite linear;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text p {
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .soft-skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>Baskaran</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#soft-skills">Soft Skills</a>
+                    <a href="#certifications">Education</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h4>Hello, I'm</h4>
+                <h1>Baskaran <span>B</span></h1>
+                <p>Software developer with strong expertise in C++ and object-oriented programming, specializing in game development (Unity/C#) and application design. Combines technical proficiency with leadership in full development lifecycles.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills</h2>
+                <p>My technical expertise spans across multiple programming languages and development tools</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag">C</div>
+                        <div class="skill-tag">C++</div>
+                        <div class="skill-tag">Java</div>
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">SQL</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-gamepad"></i> Game Development</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag">Unity</div>
+                        <div class="skill-tag">C#</div>
+                        <div class="skill-tag">3D Environment Design</div>
+                        <div class="skill-tag">Character Mechanics</div>
+                        <div class="skill-tag">Performance Optimization</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag">Git</div>
+                        <div class="skill-tag">GitHub</div>
+                        <div class="skill-tag">Visual Studio</div>
+                        <div class="skill-tag">Windows</div>
+                        <div class="skill-tag">Linux</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Core Competencies</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag">OOP</div>
+                        <div class="skill-tag">Data Structures</div>
+                        <div class="skill-tag">Algorithms</div>
+                        <div class="skill-tag">System Optimization</div>
+                        <div class="skill-tag">Problem-Solving</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Check out some of my recent development work and contributions</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tic Tac Toe Game (C++ & Java)</h3>
+                        <p>Built console applications implementing OOP principles with modular class architecture. Engineered win-state detection algorithms and input validation systems.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">C++</div>
+                            <div class="project-tag">Java</div>
+                            <div class="project-tag">OOP</div>
+                            <div class="project-tag">Algorithms</div>
+                        </div>
+                        <div>
+                            <a href="https://github.com/baskaran01/Tic-Tac-Toe-Game-in-C-" target="_blank" class="project-link">
+                                C++ Version <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="https://github.com/baskaran01/TicTacToe" target="_blank" class="project-link" style="margin-left: 20px;">
+                                Java Version <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Open-World 3D Game (Unity/C#)</h3>
+                        <p>Developed immersive 3D environment with interactive mechanics and character controllers. Optimized runtime performance through efficient scripting and resource management.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">Unity</div>
+                            <div class="project-tag">C#</div>
+                            <div class="project-tag">3D Game</div>
+                            <div class="project-tag">Optimization</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mobile Buying Pattern Analysis</h3>
+                        <p>Processed consumer behavior datasets using Pandas for trend identification. Visualized key insights through Matplotlib dashboards.</p>
+                        <div class="project-tags">
+                            <div class="project-tag">Python</div>
+                            <div class="project-tag">Pandas</div>
+                            <div class="project-tag">Matplotlib</div>
+                            <div class="project-tag">Data Analysis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="soft-skills" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));">
+        <div class="container">
+            <div class="section-header">
+                <h2>Soft Skills</h2>
+                <p>The interpersonal abilities that complement my technical expertise</p>
+            </div>
+            
+            <div class="soft-skills-container">
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Problem-Solving</h3>
+                </div>
+                
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Logical Thinking</h3>
+                </div>
+                
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Quick Learning</h3>
+                </div>
+                
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Team Collaboration</h3>
+                </div>
+                
+                <div class="soft-skill-card">
+                    <div class="soft-skill-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Leadership</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2>Certifications & Education</h2>
+                <p>My academic background and professional certifications</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3>Java Fundamentals</h3>
+                        <p>Scaler Topics</p>
+                        <a href="https://drive.google.com/file/d/1CNuf0I90rsRlR_3q-hYniu7SsqQr-B2Y/view?usp=sharing" target="_blank" class="cert-link">
+                            View Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>Data Structures in C++</h3>
+                        <p>Scaler Topics</p>
+                        <a href="https://drive.google.com/file/d/18uWrQGX4GKpSZBczNr15fP-xdBBvdmVm/view?usp=sharing" target="_blank" class="cert-link">
+                            View Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2024</span>
+                        <h3>C++ Essentials</h3>
+                        <p>Scaler Topics</p>
+                        <a href="https://drive.google.com/file/d/1Ut8cbyXehtmTseV-RA9tYxsavH39D185/view?usp=sharing" target="_blank" class="cert-link">
+                            View Certificate <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 – 2024</span>
+                        <h3>Master of Computer Applications</h3>
+                        <p>Kalasalingam Academy of Research and Education, Srivilliputhur | CGPA: 7.15</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019 – 2022</span>
+                        <h3>Bachelor of Computer Applications</h3>
+                        <p>Sri Kaliswari College, Sivakasi | CGPA: 6.8</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Feel free to reach out for collaborations or just a friendly hello</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:balabaskaran2001@gmail.com">balabaskaran2001@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:+916384518024">+91 6384518024</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Veeracholan, Tamil Nadu, India – 626612</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Connect with me</h3>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/baskaran001" target="_blank" class="social-link">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/baskaran01" target="_blank" class="social-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://baskaran01.github.io/baskaran_portfolio/" target="_blank" class="social-link">
+                                    <i class="fas fa-briefcase"></i>
+                                </a>
+                                <a href="https://leetcode.com/u/baskaran01" target="_blank" class="social-link">
+                                    <i class="fas fa-code"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>Baskaran</span>
+                </div>
+                <p>Software Developer specializing in game development and application design with strong problem-solving skills</p>
+                
+                <div class="footer-links">
+                    <a href="#skills">Technical Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#soft-skills">Soft Skills</a>
+                    <a href="#certifications">Education</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="social-links-footer">
+                    <a href="https://www.linkedin.com/in/baskaran001" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/baskaran01" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://baskaran01.github.io/baskaran_portfolio/" target="_blank" class="social-link">
+                        <i class="fas fa-briefcase"></i>
+                    </a>
+                    <a href="https://leetcode.com/u/baskaran01" target="_blank" class="social-link">
+                        <i class="fas fa-code"></i>
+                    </a>
+                </div>
+                
+                <div class="copyright">
+                    &copy; 2025 Baskaran B. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll animation for sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = `fadeInUp 1s ease forwards`;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.skill-category, .project-card, .timeline-content, .soft-skill-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Create particles
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 10 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                const opacity = Math.random() * 0.5 + 0.1;
+                const hue = Math.random() * 360;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                particle.style.opacity = opacity;
+                particle.style.background = `hsla(${hue}, 70%, 60%, ${opacity})`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
