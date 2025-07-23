@@ -9,47 +9,39 @@
     <meta name="description" content="Baskaran B - Software developer with expertise in C++, Unity, Java, and Python, specializing in game development and application design.">
     <style>
         :root {
-            /* Dark Theme Colors (Default) - Further refined for readability and aesthetic */
-            --primary: #6366f1; /* Vibrant blue for accents and primary actions */
-            --primary-dark: #4f46e5; /* Darker primary for hover states */
-            --secondary: #e2e8f0; /* Light secondary, for headings on dark backgrounds */
-            --accent: #34d399; /* Bright green accent for highlights */
-            --text-light: #f1f5f9; /* Very light text for main content on dark backgrounds */
-            --text-gray: #94a3b8; /* Softer gray for secondary text, good contrast */
-            
-            /* Backgrounds and elements */
-            --body-bg-gradient: linear-gradient(135deg, #181c2f, #282f44); /* Deeper, more distinct dark gradient */
-            --header-bg: rgba(24, 28, 47, 0.95); /* Header matches darker body background */
-            --card-bg: rgba(38, 45, 61, 0.9); /* Slightly lighter than body for card distinction */
-            --code-block-bg: rgba(24, 28, 47, 0.9); /* Code block background, more opaque */
-            --skill-tag-bg: rgba(52, 211, 153, 0.2); /* Skill tag background using accent, more opaque */
-            --project-tag-bg: rgba(52, 211, 153, 0.2); /* Project tag background using accent, more opaque */
-            --skill-tag-border: rgba(52, 211, 153, 0.4); /* Stronger border for better definition */
-            --project-tag-border: rgba(52, 211, 153, 0.4); /* Stronger border for better definition */
-            --timeline-line-color: rgba(255, 255, 255, 0.3); /* More visible timeline line */
-            --footer-bg: rgba(24, 28, 47, 0.95); /* Footer background */
-            --section-soft-skills-bg: linear-gradient(135deg, rgba(24,28,47,.8), rgba(38,45,61,.8)); /* Soft skills section background */
-            --timeline-pointer-border: rgba(255, 255, 255, 0.2); /* Border for the timeline pointer */
-            --overlay-color: rgba(0, 0, 0, 0.5); /* Dark overlay for mobile menu */
-
-
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #e2e8f0;
+            --accent: #34d399;
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --body-bg-gradient: linear-gradient(135deg, #181c2f, #282f44);
+            --header-bg: rgba(24, 28, 47, 0.95);
+            --card-bg: rgba(38, 45, 61, 0.9);
+            --code-block-bg: rgba(24, 28, 47, 0.9);
+            --skill-tag-bg: rgba(52, 211, 153, 0.2);
+            --project-tag-bg: rgba(52, 211, 153, 0.2);
+            --skill-tag-border: rgba(52, 211, 153, 0.4);
+            --project-tag-border: rgba(52, 211, 153, 0.4);
+            --timeline-line-color: rgba(255, 255, 255, 0.3);
+            --footer-bg: rgba(24, 28, 47, 0.95);
+            --section-soft-skills-bg: linear-gradient(135deg, rgba(24,28,47,.8), rgba(38,45,61,.8));
+            --timeline-pointer-border: rgba(255, 255, 255, 0.2);
+            --overlay-color: rgba(0, 0, 0, 0.5);
             --transition: all 0.3s ease;
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --border-radius: 12px;
         }
 
-        /* Light Theme Colors */
         body.light-theme {
             --primary: #4f46e5;
             --primary-dark: #4338ca;
-            --secondary: #1f2937; /* Darker text for readability (main text, headings) */
-            --accent: #059669; /* Darker teal for accent */
-            --text-light: #1f2937; /* Main text color in light mode */
-            --text-gray: #4b5563; /* Secondary text color in light mode */
-            
-            /* Backgrounds and elements */
-            --card-bg: rgba(255, 255, 255, 0.95); /* Opaque white for light mode cards */
-            --body-bg-gradient: linear-gradient(135deg, #f0f4f8, #ffffff); /* Lighter, subtle gradient */
+            --secondary: #1f2937;
+            --accent: #059669;
+            --text-light: #1f2937;
+            --text-gray: #4b5563;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --body-bg-gradient: linear-gradient(135deg, #f0f4f8, #ffffff);
             --header-bg: rgba(255, 255, 255, 0.95);
             --code-block-bg: rgba(241, 245, 249, 0.9);
             --skill-tag-bg: rgba(79, 70, 229, 0.1);
@@ -58,10 +50,9 @@
             --project-tag-border: rgba(5, 150, 105, 0.2);
             --timeline-line-color: rgba(0, 0, 0, 0.1);
             --footer-bg: rgba(255, 255, 255, 0.95);
-            --section-soft-skills-bg: linear-gradient(135deg, #e2e8f0, #f8fafc); /* Light background for soft skills section */
-            --timeline-pointer-border: rgba(0, 0, 0, 0.15); /* Border for the timeline pointer in light mode */
-            --overlay-color: rgba(0, 0, 0, 0.3); /* Lighter overlay for mobile menu in light mode */
-
+            --section-soft-skills-bg: linear-gradient(135deg, #e2e8f0, #f8fafc);
+            --timeline-pointer-border: rgba(0, 0, 0, 0.15);
+            --overlay-color: rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -73,14 +64,13 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--body-bg-gradient);
-            color: var(--text-light); /* Apply main text color from variable */
+            color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
             background-attachment: fixed;
-            transition: background var(--transition), color var(--transition); /* Smooth transition for theme change */
+            transition: background var(--transition), color var(--transition);
         }
 
-        /* Overlay for mobile navigation */
         body.nav-open::before {
             content: '';
             position: fixed;
@@ -89,7 +79,7 @@
             width: 100%;
             height: 100%;
             background-color: var(--overlay-color);
-            z-index: 90; /* Below nav links but above content */
+            z-index: 90;
             transition: opacity 0.3s ease;
         }
 
@@ -139,18 +129,18 @@
         .nav-links {
             display: flex;
             gap: 2rem;
-            align-items: center; /* Align items for toggle button */
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-light); /* Use text-light variable */
+            color: var(--text-light);
             font-weight: 500;
             transition: var(--transition);
             position: relative;
             padding: 0.5rem 0;
         }
-        
+
         .nav-links a:hover {
             color: var(--accent);
         }
@@ -174,7 +164,7 @@
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--text-light); /* Use text-light variable */
+            color: var(--text-light);
             cursor: pointer;
             margin-left: 1.5rem;
             transition: color var(--transition);
@@ -184,15 +174,14 @@
             color: var(--primary);
         }
 
-        /* Hamburger Menu Styles */
         .hamburger-menu {
-            display: none; /* Hidden by default on larger screens */
+            display: none;
             background: none;
             border: none;
             font-size: 1.5rem;
             color: var(--text-light);
             cursor: pointer;
-            z-index: 101; /* Above nav-links when open */
+            z-index: 101;
             transition: color var(--transition), transform 0.3s ease;
         }
 
@@ -250,7 +239,7 @@
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            color: var(--text-light); /* Use text-light variable */
+            color: var(--text-light);
         }
         
         .hero-text h1 span {
@@ -341,7 +330,7 @@
             border-radius: var(--border-radius);
             padding: 2rem;
             font-family: 'Roboto Mono', monospace;
-            color: var(--text-light); /* Use text-light variable */
+            color: var(--text-light);
             box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
@@ -351,6 +340,15 @@
 
         body.light-theme .code-block {
             border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .code-block:hover {
+            box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        body.light-theme .code-block:hover {
+            border-color: rgba(79, 70, 229, 0.3);
         }
 
         .code-header {
@@ -418,7 +416,7 @@
 
         .section-header h2 {
             font-size: 2.5rem;
-            color: var(--text-light); /* Use text-light variable for headings */
+            color: var(--text-light);
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
@@ -437,7 +435,7 @@
         }
 
         .section-header p {
-            color: var(--text-gray); /* Use text-gray variable for descriptive text */
+            color: var(--text-gray);
             max-width: 600px;
             margin: 1rem auto 0;
         }
@@ -464,7 +462,7 @@
 
         .skill-category:hover {
             transform: translateY(-10px);
-            border-color: rgba(99, 102, 241, 0.4); /* Stronger border on hover */
+            border-color: rgba(99, 102, 241, 0.4);
         }
 
         body.light-theme .skill-category:hover {
@@ -491,13 +489,13 @@
 
         .skill-tag {
             background-color: var(--skill-tag-bg);
-            color: var(--accent); /* Changed to accent for better visibility */
+            color: var(--accent);
             padding: 0.5rem 1rem;
             border-radius: 50px;
             font-size: 0.9rem;
             font-weight: 500;
             transition: var(--transition);
-            border: 1px solid var(--skill-tag-border); /* Uses stronger border variable */
+            border: 1px solid var(--skill-tag-border);
         }
 
         .skill-tag:hover {
@@ -531,7 +529,7 @@
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
-            border-color: rgba(99, 102, 241, 0.4); /* Stronger border on hover */
+            border-color: rgba(99, 102, 241, 0.4);
         }
 
         body.light-theme .project-card:hover {
@@ -571,11 +569,11 @@
         .project-content h3 {
             font-size: 1.4rem;
             margin-bottom: 0.8rem;
-            color: var(--text-light); /* Changed to text-light for better visibility on dark cards */
+            color: var(--text-light);
         }
 
         .project-content p {
-            color: var(--text-gray); /* Use text-gray variable for card text */
+            color: var(--text-gray);
             margin-bottom: 1.5rem;
             flex-grow: 1;
         }
@@ -621,7 +619,7 @@
             gap: 1.5rem;
         }
         #soft-skills {
-            background: var(--section-soft-skills-bg); /* Use variable for this section's background */
+            background: var(--section-soft-skills-bg);
         }
 
         .soft-skill-card {
@@ -642,7 +640,7 @@
         .soft-skill-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.1);
-            border-color: rgba(52, 211, 153, 0.4); /* Stronger border on hover */
+            border-color: rgba(52, 211, 153, 0.4);
         }
 
         body.light-theme .soft-skill-card:hover {
@@ -653,7 +651,7 @@
             width: 60px;
             height: 60px;
             margin: 0 auto 1rem;
-            background: rgba(52, 211, 153, 0.1); /* Uses accent for icon background */
+            background: rgba(52, 211, 153, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -664,7 +662,7 @@
 
         .soft-skill-card h3 {
             font-size: 1.1rem;
-            color: var(--text-light); /* Changed to text-light for better visibility on dark cards */
+            color: var(--text-light);
         }
 
         .timeline {
@@ -721,8 +719,8 @@
             width: 20px;
             height: 20px;
             transform: rotate(45deg);
-            background: transparent; /* Changed to transparent */
-            border: 1px solid var(--timeline-pointer-border); /* Use variable for pointer border */
+            background: transparent;
+            border: 1px solid var(--timeline-pointer-border);
             transition: background var(--transition), border-color var(--transition);
         }
 
@@ -748,11 +746,11 @@
         .timeline-content h3 {
             font-size: 1.3rem;
             margin-bottom: 0.8rem;
-            color: var(--text-light); /* Changed to text-light for better visibility on dark cards */
+            color: var(--text-light);
         }
 
         .timeline-content p {
-            color: var(--text-gray); /* Use text-gray variable for timeline text */
+            color: var(--text-gray);
         }
         
         .timeline-content .cert-link {
@@ -802,12 +800,12 @@
         .contact-details h3 {
             font-size: 1.2rem;
             margin-bottom: 0.3rem;
-            color: var(--text-light); /* Use text-light for contact headings */
+            color: var(--text-light);
         }
 
         .contact-details p,
         .contact-details a {
-            color: var(--text-gray); /* Use text-gray for contact details */
+            color: var(--text-gray);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -830,13 +828,13 @@
             height: 40px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
-            color: var(--text-light); /* Use text-light for social icons */
+            color: var(--text-light);
             transition: var(--transition);
         }
 
         body.light-theme .social-link {
             background: rgba(0, 0, 0, 0.05);
-            color: var(--secondary); /* Use secondary for light theme social icons */
+            color: var(--secondary);
         }
 
         .social-link:hover {
@@ -855,7 +853,7 @@
         }
 
         body.light-theme footer {
-            color: var(--secondary); /* Use secondary for light theme footer text */
+            color: var(--secondary);
             border-top-color: rgba(0, 0, 0, 0.05);
         }
 
@@ -883,7 +881,7 @@
 
         .footer-content p {
             margin: 0.5rem 0 1.5rem;
-            color: var(--text-gray); /* Use text-gray for footer paragraph */
+            color: var(--text-gray);
             max-width: 500px;
         }
 
@@ -896,7 +894,7 @@
         }
 
         .footer-links a {
-            color: var(--text-gray); /* Use text-gray for footer links */
+            color: var(--text-gray);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -914,7 +912,7 @@
         .copyright {
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-gray); /* Use text-gray for copyright */
+            color: var(--text-gray);
             font-size: 0.9rem;
             width: 100%;
         }
@@ -958,7 +956,7 @@
         .particle {
             position: absolute;
             border-radius: 50%;
-            background: rgba(99, 102, 241, 0.3); /* Uses primary for particles */
+            background: rgba(99, 102, 241, 0.3);
             animation: float 10s infinite linear;
         }
 
@@ -968,34 +966,34 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Hidden by default on larger screens */
+                display: none;
                 flex-direction: column;
                 position: fixed;
-                top: 0; /* Aligned with top of viewport */
-                right: -100%; /* Start off-screen */
-                width: 70%; /* Adjust width as needed */
-                height: 100vh; /* Full viewport height */
-                overflow-y: auto; /* Enable scrolling for long menus */
-                background-color: var(--header-bg); /* Use header background for consistency */
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                overflow-y: auto;
+                background-color: var(--header-bg);
                 box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-                padding: 6rem 2rem 2rem; /* Adjusted top padding for header offset */
+                padding: 6rem 2rem 2rem;
                 transition: right 0.3s ease-in-out;
                 align-items: flex-start;
-                gap: 1.5rem; /* Spacing between links */
+                gap: 1.5rem;
                 border-left: 1px solid rgba(255, 255, 255, 0.05);
                 backdrop-filter: blur(15px);
-                z-index: 99; /* Below hamburger menu icon, above overlay */
+                z-index: 99;
             }
 
             body.nav-open .nav-links {
-                display: flex; /* Show when nav-open class is present */
-                right: 0; /* Slide in */
+                display: flex;
+                right: 0;
             }
 
             .nav-links a {
-                width: 100%; /* Full width links */
+                width: 100%;
                 padding: 0.8rem 0;
-                border-bottom: 1px solid rgba(255,255,255,0.05); /* Separator between links */
+                border-bottom: 1px solid rgba(255,255,255,0.05);
             }
 
             body.light-theme .nav-links {
@@ -1007,8 +1005,8 @@
             }
 
             .hamburger-menu {
-                display: block; /* Show hamburger on smaller screens */
-                margin-left: 1rem; /* Adjust margin */
+                display: block;
+                margin-left: 1rem;
             }
 
             nav {
@@ -1016,8 +1014,8 @@
             }
 
             .theme-toggle {
-                margin-left: auto; /* Push theme toggle to the right */
-                order: 1; /* Order it after logo */
+                margin-left: auto;
+                order: 1;
             }
 
             .logo {
@@ -1346,15 +1344,6 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <a href="tel:+916384518024">+91 6384518024</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
@@ -1421,7 +1410,6 @@
                 observer.observe(el);
             });
 
-            // Create particles
             const particlesContainer = document.getElementById('particles');
             const particleCount = 30;
 
@@ -1429,7 +1417,6 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
 
-                // Random properties
                 const size = Math.random() * 10 + 5;
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
@@ -1450,19 +1437,16 @@
                 particlesContainer.appendChild(particle);
             }
 
-            // Theme Toggle Logic
             const themeToggleBtn = document.getElementById('theme-toggle');
             const body = document.body;
             const themeIcon = themeToggleBtn.querySelector('i');
 
-            // Check for saved theme preference
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'light-theme') {
                 body.classList.add('light-theme');
                 themeIcon.classList.replace('fa-moon', 'fa-sun');
                 themeToggleBtn.setAttribute('aria-pressed', 'true');
             } else {
-                // Default to dark theme if no preference or 'dark-theme' is saved
                 body.classList.remove('light-theme');
                 themeIcon.classList.replace('fa-sun', 'fa-moon');
                 themeToggleBtn.setAttribute('aria-pressed', 'false');
@@ -1481,16 +1465,13 @@
                 themeToggleBtn.setAttribute('aria-pressed', isLightTheme.toString());
             });
 
-            // Hamburger Menu Logic
             const hamburgerMenuBtn = document.getElementById('hamburger-menu');
-            const navLinks = document.querySelector('.nav-links'); // This now contains both links and theme toggle
+            const navLinks = document.querySelector('.nav-links');
             const hamburgerIcon = hamburgerMenuBtn.querySelector('i');
-
 
             hamburgerMenuBtn.addEventListener('click', () => {
                 const isNavOpen = body.classList.toggle('nav-open');
                 hamburgerMenuBtn.setAttribute('aria-expanded', isNavOpen.toString());
-                // Toggle icon
                 if (isNavOpen) {
                     hamburgerIcon.classList.replace('fa-bars', 'fa-times');
                 } else {
@@ -1498,13 +1479,12 @@
                 }
             });
 
-            // Close nav when a link is clicked (for mobile)
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (body.classList.contains('nav-open')) {
                         body.classList.remove('nav-open');
                         hamburgerMenuBtn.setAttribute('aria-expanded', 'false');
-                        hamburgerIcon.classList.replace('fa-times', 'fa-bars'); // Reset icon
+                        hamburgerIcon.classList.replace('fa-times', 'fa-bars');
                     }
                 });
             });
